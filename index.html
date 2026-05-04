@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfferVault — Compare Job Offers & Salary Calculator</title>
+<meta name="description" content="Free job offer comparison tool. Compare two job offers side by side — salary, take-home pay, benefits, cost of living, commute costs, and more. Make smarter career decisions.">
+<meta name="google-site-verification" content="auALtq0c9ZF0R3bXSixqudexm1ZRn0lujTJz8UIZRts" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTF5BWJE25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MTF5BWJE25');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I compare two job offers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To compare two job offers effectively, look beyond base salary. Consider take-home pay after taxes, benefits like health insurance and retirement contributions, commute costs and time, cost of living if relocating, and career growth opportunities. OfferVault lets you enter all these factors side by side to see which offer is truly worth more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I take the higher salary or better benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. A higher salary can be offset by lower benefits, higher taxes, or expensive commutes. For example, a job paying $10,000 more per year but with no health insurance, a long commute, and higher cost of living may actually leave you worse off. Use a job offer comparison calculator to see the true net value of each offer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a salary take-home pay calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A take-home pay calculator estimates your actual earnings after federal and state taxes, Social Security, Medicare, and other deductions are subtracted from your gross salary. This gives you a realistic picture of what you will actually earn each month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do commute costs affect job offer comparison?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commute costs can significantly reduce the value of a job offer. Factor in daily transport costs, fuel, parking, and the time you spend commuting each week. A job closer to home with a slightly lower salary may be worth more when commute savings are included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does cost of living affect salary comparison?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A $100,000 salary in New York City has far less purchasing power than the same salary in a smaller city. When comparing job offers in different locations, always adjust for cost of living differences to understand the real value of each salary."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --bg2: #13151a;
+    --bg3: #1c1f27;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #f0f1f3;
+    --muted: #7a7f8e;
+    --accent-a: #4ade80;
+    --accent-b: #60a5fa;
+    --accent-warn: #fb923c;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,12,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-a); display: inline-block; }
+  .nav-tag {
+    font-size: 11px; font-weight: 500;
+    background: rgba(74,222,128,0.12);
+    color: var(--accent-a);
+    border: 1px solid rgba(74,222,128,0.25);
+    padding: 3px 10px; border-radius: 20px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 5rem 1.5rem 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeUp 0.6s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 12px; font-weight: 500;
+    color: var(--accent-b);
+    background: rgba(96,165,250,0.1);
+    border: 1px solid rgba(96,165,250,0.2);
+    padding: 4px 14px; border-radius: 20px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--accent-a); }
+  .hero p {
+    font-size: 16px; color: var(--muted);
+    line-height: 1.7; max-width: 520px; margin: 0 auto 2rem;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex; gap: 6px; justify-content: center;
+    margin-bottom: 2.5rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .tab-btn {
+    padding: 8px 18px; border-radius: 30px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+    background: var(--bg3); border: 1px solid var(--border2); color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn.active {
+    background: var(--accent-a); color: #0b0c0f; border-color: var(--accent-a);
+  }
+  .tab-btn:hover:not(.active) { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+  /* TOOL PANELS */
+  .tool-section { display: none; animation: fadeUp 0.4s ease both; }
+  .tool-section.active { display: block; }
+
+  /* OFFER COMPARISON LAYOUT */
+  .compare-wrap {
+    max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem;
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+    align-items: start;
+  }
+  @media(max-width: 768px) {
+    .compare-wrap { grid-template-columns: 1fr; }
+    .vs-divider { display: none; }
+  }
+  .offer-col {
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .offer-col.a { border-color: rgba(74,222,128,0.3); }
+  .offer-col.b { border-color: rgba(96,165,250,0.3); }
+
+  .offer-header {
+    padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .offer-col.a .offer-header { background: rgba(74,222,128,0.07); border-bottom: 1px solid rgba(74,222,128,0.15); }
+  .offer-col.b .offer-header { background: rgba(96,165,250,0.07); border-bottom: 1px solid rgba(96,165,250,0.15); }
+  .offer-label {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px;
+  }
+  .offer-col.a .offer-label { color: var(--accent-a); }
+  .offer-col.b .offer-label { color: var(--accent-b); }
+  .company-input {
+    background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius-sm);
+    color: var(--text); padding: 5px 10px; font-size: 13px; font-family: 'DM Sans', sans-serif;
+    width: 160px; outline: none;
+  }
+  .company-input:focus { border-color: rgba(255,255,255,0.25); }
+  .company-input::placeholder { color: var(--muted); }
+
+  .offer-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.03em; }
+  .field input, .field select {
+    background: var(--bg3); border: 1px solid var(--border2);
+    border-radius: var(--radius-sm); color: var(--text);
+    padding: 9px 12px; font-size: 14px; font-family: 'DM Sans', sans-serif;
+    outline: none; width: 100%; transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus { border-color: rgba(255,255,255,0.3); }
+  .field select option { background: var(--bg2); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* VS DIVIDER */
+  .vs-divider {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    padding: 3rem 1.5rem 0;
+    gap: 1rem;
+  }
+  .vs-circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--muted); background: var(--bg2);
+  }
+
+  /* CALCULATE BUTTON */
+  .calc-wrap { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.5rem 0; text-align: center; }
+  .calc-btn {
+    padding: 14px 40px; border-radius: 40px;
+    background: var(--accent-a); color: #0b0c0f;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px;
+    border: none; cursor: pointer; transition: all 0.2s;
+    letter-spacing: -0.01em;
+  }
+  .calc-btn:hover { transform: scale(1.03); background: #86efac; }
+  .calc-btn:active { transform: scale(0.98); }
+
+  /* RESULTS */
+  .results-wrap {
+    max-width: 1100px; margin: 2.5rem auto 0; padding: 0 1.5rem 4rem;
+    display: none;
+    animation: fadeUp 0.5s ease both;
+  }
+  .results-wrap.show { display: block; }
+
+  .winner-banner {
+    background: linear-gradient(135deg, rgba(74,222,128,0.1), rgba(96,165,250,0.07));
+    border: 1px solid rgba(74,222,128,0.25);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .winner-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .winner-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--accent-a); }
+  .winner-reason { font-size: 14px; color: var(--muted); max-width: 500px; line-height: 1.6; }
+
+  .results-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+    margin-bottom: 2rem;
+  }
+  .result-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .result-card-title { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .result-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .result-row:last-child { border-bottom: none; }
+  .result-side { font-size: 13px; }
+  .result-val { font-size: 14px; font-weight: 500; }
+  .val-a { color: var(--accent-a); }
+  .val-b { color: var(--accent-b); }
+
+  .score-bar-wrap { margin-top: 8px; }
+  .score-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .score-bar-label { font-size: 12px; color: var(--muted); width: 130px; flex-shrink: 0; }
+  .score-bars { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .score-bar-bg { background: var(--bg3); border-radius: 4px; height: 6px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+  .fill-a { background: var(--accent-a); }
+  .fill-b { background: var(--accent-b); }
+  .score-vals { display: flex; justify-content: space-between; font-size: 11px; }
+
+  /* TAKE-HOME TOOL */
+  .single-tool-wrap {
+    max-width: 600px; margin: 0 auto; padding: 0 1.5rem 4rem;
+  }
+  .tool-card-big {
+    background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 2rem;
+  }
+  .tool-card-big h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 1.5rem; }
+
+  .result-number {
+    text-align: center; padding: 2rem 0 1rem;
+  }
+  .result-number .main-val {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800; color: var(--accent-a); line-height: 1;
+  }
+  .result-number .sub-val { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+  .breakdown-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 1.5rem;
+  }
+  .breakdown-item {
+    background: var(--bg3); border-radius: var(--radius-sm); padding: 12px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .breakdown-item .b-label { font-size: 11px; color: var(--muted); }
+  .breakdown-item .b-val { font-size: 16px; font-weight: 500; }
+  .breakdown-item.deduct .b-val { color: var(--accent-warn); }
+  .breakdown-item.net .b-val { color: var(--accent-a); }
+
+  /* COL ADJ TOOL */
+  .col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  @media(max-width: 600px) { .col-grid { grid-template-columns: 1fr; } .field-row { grid-template-columns: 1fr; } .breakdown-grid { grid-template-columns: 1fr; } }
+  .col-result-banner {
+    background: var(--bg3); border-radius: var(--radius); padding: 1.5rem; text-align: center;
+    border: 1px solid var(--border2);
+  }
+  .col-result-banner .equivalent {
+    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-a);
+  }
+  .col-result-banner .equiv-sub { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  /* NEGOTIATION TOOL */
+  .neg-result {
+    background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius);
+    padding: 1.5rem; margin-top: 1.5rem; font-size: 14px; line-height: 1.8; color: var(--text);
+    display: none;
+  }
+  .neg-result.show { display: block; }
+  .neg-result strong { color: var(--accent-a); }
+  textarea {
+    background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius-sm);
+    color: var(--text); padding: 10px 12px; font-size: 14px; font-family: 'DM Sans', sans-serif;
+    outline: none; width: 100%; resize: vertical; min-height: 80px;
+    transition: border-color 0.2s;
+  }
+  textarea:focus { border-color: rgba(255,255,255,0.3); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer a { color: var(--accent-b); text-decoration: none; }
+
+  /* AD PLACEHOLDERS */
+  .ad-slot {
+    background: var(--bg2); border: 1px dashed var(--border2); border-radius: var(--radius-sm);
+    text-align: center; padding: 1.5rem; margin: 2rem auto;
+    max-width: 728px; font-size: 12px; color: var(--muted);
+  }
+
+  /* UTILS */
+  .small-btn {
+    padding: 9px 22px; border-radius: 30px;
+    background: var(--bg3); border: 1px solid var(--border2); color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all 0.2s; margin-top: 1rem;
+  }
+  .small-btn:hover { border-color: rgba(255,255,255,0.25); }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+  .tip { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="logo-dot"></span> OfferVault</div>
+  <span class="nav-tag">100% Free</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Career Decision Tool</div>
+  <h1>Which job offer is<br><span>actually</span> better?</h1>
+  <p>Compare two job offers side by side. See real take-home pay, hidden costs, benefits value, and get a clear winner — in seconds.</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('compare')">Compare Offers</button>
+  <button class="tab-btn" onclick="switchTab('takehome')">Take-Home Calculator</button>
+  <button class="tab-btn" onclick="switchTab('col')">Cost of Living</button>
+  <button class="tab-btn" onclick="switchTab('negotiate')">Negotiation Script</button>
+</div>
+
+<!-- ===================== TAB 1: COMPARE ===================== -->
+<div id="tab-compare" class="tool-section active">
+
+  <div class="compare-wrap">
+    <!-- OFFER A -->
+    <div class="offer-col a">
+      <div class="offer-header">
+        <span class="offer-label">Offer A</span>
+        <input class="company-input" id="a-company" placeholder="Company name" value="Company A">
+      </div>
+      <div class="offer-body">
+        <div class="field">
+          <label>BASE SALARY (annual, USD)</label>
+          <input type="number" id="a-salary" placeholder="e.g. 85000" value="85000">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>BONUS (annual)</label>
+            <input type="number" id="a-bonus" placeholder="0" value="5000">
+          </div>
+          <div class="field">
+            <label>STOCK/EQUITY (annual)</label>
+            <input type="number" id="a-stock" placeholder="0" value="0">
+          </div>
+        </div>
+        <div class="field">
+          <label>HEALTH INSURANCE</label>
+          <select id="a-health">
+            <option value="0">Fully covered by employer</option>
+            <option value="100" selected>Low cost (~$100/mo)</option>
+            <option value="300">Moderate (~$300/mo)</option>
+            <option value="500">High (~$500/mo)</option>
+            <option value="800">Premium (~$800/mo)</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>COMMUTE (days/week)</label>
+            <select id="a-commute-days">
+              <option value="0">Remote</option>
+              <option value="1">1 day</option>
+              <option value="2">2 days</option>
+              <option value="3" selected>3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>COMMUTE COST ($/trip)</label>
+            <input type="number" id="a-commute-cost" placeholder="e.g. 15" value="15">
+          </div>
+        </div>
+        <div class="field">
+          <label>401K/RETIREMENT MATCH</label>
+          <select id="a-401k">
+            <option value="0">No match</option>
+            <option value="1000">Partial match (~$1,000)</option>
+            <option value="2000" selected>Standard match (~$2,000)</option>
+            <option value="4000">Strong match (~$4,000)</option>
+            <option value="6000">Excellent match (~$6,000)</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>PTO (days/year)</label>
+            <input type="number" id="a-pto" placeholder="15" value="15">
+          </div>
+          <div class="field">
+            <label>DAILY VALUE ($/day)</label>
+            <input type="number" id="a-pto-val" placeholder="e.g. 350" value="350">
+          </div>
+        </div>
+        <div class="field">
+          <label>OTHER PERKS VALUE (annual)</label>
+          <input type="number" id="a-perks" placeholder="gym, meals, etc." value="1200">
+        </div>
+        <div class="field">
+          <label>TAX BRACKET (US)</label>
+          <select id="a-tax">
+            <option value="0.10">10% — under $11k</option>
+            <option value="0.12">12% — $11k–$44k</option>
+            <option value="0.22" selected>22% — $44k–$95k</option>
+            <option value="0.24">24% — $95k–$201k</option>
+            <option value="0.32">32% — $201k–$383k</option>
+            <option value="0.35">35% — $383k–$578k</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>CAREER GROWTH POTENTIAL</label>
+          <select id="a-growth">
+            <option value="1">Low — limited upward mobility</option>
+            <option value="2" selected>Medium — standard progression</option>
+            <option value="3">High — fast-track / startup</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS -->
+    <div class="vs-divider"><div class="vs-circle">VS</div></div>
+
+    <!-- OFFER B -->
+    <div class="offer-col b">
+      <div class="offer-header">
+        <span class="offer-label">Offer B</span>
+        <input class="company-input" id="b-company" placeholder="Company name" value="Company B">
+      </div>
+      <div class="offer-body">
+        <div class="field">
+          <label>BASE SALARY (annual, USD)</label>
+          <input type="number" id="b-salary" placeholder="e.g. 95000" value="95000">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>BONUS (annual)</label>
+            <input type="number" id="b-bonus" placeholder="0" value="0">
+          </div>
+          <div class="field">
+            <label>STOCK/EQUITY (annual)</label>
+            <input type="number" id="b-stock" placeholder="0" value="10000">
+          </div>
+        </div>
+        <div class="field">
+          <label>HEALTH INSURANCE</label>
+          <select id="b-health">
+            <option value="0">Fully covered by employer</option>
+            <option value="100">Low cost (~$100/mo)</option>
+            <option value="300" selected>Moderate (~$300/mo)</option>
+            <option value="500">High (~$500/mo)</option>
+            <option value="800">Premium (~$800/mo)</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>COMMUTE (days/week)</label>
+            <select id="b-commute-days">
+              <option value="0" selected>Remote</option>
+              <option value="1">1 day</option>
+              <option value="2">2 days</option>
+              <option value="3">3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>COMMUTE COST ($/trip)</label>
+            <input type="number" id="b-commute-cost" placeholder="e.g. 15" value="0">
+          </div>
+        </div>
+        <div class="field">
+          <label>401K/RETIREMENT MATCH</label>
+          <select id="b-401k">
+            <option value="0" selected>No match</option>
+            <option value="1000">Partial match (~$1,000)</option>
+            <option value="2000">Standard match (~$2,000)</option>
+            <option value="4000">Strong match (~$4,000)</option>
+            <option value="6000">Excellent match (~$6,000)</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>PTO (days/year)</label>
+            <input type="number" id="b-pto" placeholder="15" value="20">
+          </div>
+          <div class="field">
+            <label>DAILY VALUE ($/day)</label>
+            <input type="number" id="b-pto-val" placeholder="e.g. 350" value="400">
+          </div>
+        </div>
+        <div class="field">
+          <label>OTHER PERKS VALUE (annual)</label>
+          <input type="number" id="b-perks" placeholder="gym, meals, etc." value="0">
+        </div>
+        <div class="field">
+          <label>TAX BRACKET (US)</label>
+          <select id="b-tax">
+            <option value="0.10">10% — under $11k</option>
+            <option value="0.12">12% — $11k–$44k</option>
+            <option value="0.22">22% — $44k–$95k</option>
+            <option value="0.24" selected>24% — $95k–$201k</option>
+            <option value="0.32">32% — $201k–$383k</option>
+            <option value="0.35">35% — $383k–$578k</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>CAREER GROWTH POTENTIAL</label>
+          <select id="b-growth">
+            <option value="1">Low — limited upward mobility</option>
+            <option value="2">Medium — standard progression</option>
+            <option value="3" selected>High — fast-track / startup</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-wrap">
+    <button class="calc-btn" onclick="calculateComparison()">Compare These Offers →</button>
+  </div>
+
+  <!-- AD SLOT TOP -->
+  <div class="ad-slot" style="margin: 2rem auto; max-width: 728px;">
+    <!-- Google AdSense Ad Unit Here -->
+    AdSense Ad — 728×90 Leaderboard
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="results-wrap">
+    <div id="winner-banner" class="winner-banner">
+      <div>
+        <div class="winner-label">RECOMMENDED OFFER</div>
+        <div id="winner-name" class="winner-name">—</div>
+      </div>
+      <div id="winner-reason" class="winner-reason">—</div>
+    </div>
+
+    <div class="results-grid">
+      <!-- TOTAL COMP -->
+      <div class="result-card">
+        <div class="result-card-title">Total Compensation</div>
+        <div class="result-row">
+          <span class="result-side" id="rc-a-name" style="color:#4ade80;">Offer A</span>
+          <span class="result-val val-a" id="rc-a-total">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" id="rc-b-name" style="color:#60a5fa;">Offer B</span>
+          <span class="result-val val-b" id="rc-b-total">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:var(--muted);">Difference</span>
+          <span class="result-val" id="rc-diff">—</span>
+        </div>
+      </div>
+
+      <!-- TAKE-HOME -->
+      <div class="result-card">
+        <div class="result-card-title">Est. Annual Take-Home Pay</div>
+        <div class="result-row">
+          <span class="result-side" style="color:#4ade80;">Offer A</span>
+          <span class="result-val val-a" id="th-a">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:#60a5fa;">Offer B</span>
+          <span class="result-val val-b" id="th-b">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:var(--muted);">Monthly diff</span>
+          <span class="result-val" id="th-monthly">—</span>
+        </div>
+      </div>
+
+      <!-- HIDDEN COSTS -->
+      <div class="result-card">
+        <div class="result-card-title">Annual Hidden Costs</div>
+        <div class="result-row">
+          <span class="result-side" style="color:#4ade80;">Offer A</span>
+          <span class="result-val" style="color:var(--accent-warn);" id="hc-a">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:#60a5fa;">Offer B</span>
+          <span class="result-val" style="color:var(--accent-warn);" id="hc-b">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:var(--muted);">Includes commute + insurance</span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- BENEFITS VALUE -->
+      <div class="result-card">
+        <div class="result-card-title">Total Benefits Value</div>
+        <div class="result-row">
+          <span class="result-side" style="color:#4ade80;">Offer A</span>
+          <span class="result-val val-a" id="bv-a">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:#60a5fa;">Offer B</span>
+          <span class="result-val val-b" id="bv-b">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-side" style="color:var(--muted);">PTO + 401k + perks</span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCORE BARS -->
+    <div class="result-card" style="margin-bottom: 1rem;">
+      <div class="result-card-title" style="margin-bottom: 1.5rem;">Factor-by-Factor Score</div>
+      <div class="score-bar-wrap" id="score-bars"></div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="result-card" id="verdict-card">
+      <div class="result-card-title">Our Verdict</div>
+      <p id="verdict-text" style="font-size:14px; line-height:1.8; color:var(--muted); margin-top:8px;"></p>
+    </div>
+
+    <!-- AD SLOT BOTTOM -->
+    <div class="ad-slot" style="margin-top: 2rem;">
+      <!-- Google AdSense Ad Unit Here -->
+      AdSense Ad — 728×90 Leaderboard
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB 2: TAKE-HOME ===================== -->
+<div id="tab-takehome" class="tool-section">
+  <div class="single-tool-wrap">
+    <div class="tool-card-big">
+      <h3>Take-Home Pay Calculator</h3>
+      <div class="field" style="margin-bottom:1rem;">
+        <label>GROSS ANNUAL SALARY (USD)</label>
+        <input type="number" id="th-salary" placeholder="e.g. 75000" value="75000">
+      </div>
+      <div class="field-row" style="margin-bottom:1rem;">
+        <div class="field">
+          <label>FILING STATUS</label>
+          <select id="th-filing">
+            <option value="single">Single</option>
+            <option value="married">Married (joint)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>STATE TAX RATE</label>
+          <select id="th-state">
+            <option value="0">No state tax (TX, FL, etc.)</option>
+            <option value="0.03">Low ~3% (NC, ND)</option>
+            <option value="0.05" selected>Average ~5% (OH, VA)</option>
+            <option value="0.07">High ~7% (MN, OR)</option>
+            <option value="0.093">Very high ~9.3% (CA)</option>
+            <option value="0.1075">Max ~10.75% (NJ)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row" style="margin-bottom:1rem;">
+        <div class="field">
+          <label>401K CONTRIBUTION %</label>
+          <input type="number" id="th-401k" placeholder="6" value="6" min="0" max="100">
+        </div>
+        <div class="field">
+          <label>HEALTH INSURANCE ($/mo)</label>
+          <input type="number" id="th-health" placeholder="150" value="150">
+        </div>
+      </div>
+      <button class="calc-btn" style="width:100%;" onclick="calcTakeHome()">Calculate Take-Home →</button>
+
+      <div id="th-result" style="display:none; margin-top:1.5rem;">
+        <div class="result-number">
+          <div class="main-val" id="th-main-val">$0</div>
+          <div class="sub-val">estimated annual take-home pay</div>
+        </div>
+        <div class="breakdown-grid">
+          <div class="breakdown-item">
+            <span class="b-label">Gross salary</span>
+            <span class="b-val" id="th-gross">—</span>
+          </div>
+          <div class="breakdown-item deduct">
+            <span class="b-label">Federal income tax</span>
+            <span class="b-val" id="th-fed">—</span>
+          </div>
+          <div class="breakdown-item deduct">
+            <span class="b-label">State income tax</span>
+            <span class="b-val" id="th-state-tax">—</span>
+          </div>
+          <div class="breakdown-item deduct">
+            <span class="b-label">FICA (SS + Medicare)</span>
+            <span class="b-val" id="th-fica">—</span>
+          </div>
+          <div class="breakdown-item deduct">
+            <span class="b-label">401k contribution</span>
+            <span class="b-val" id="th-401k-ded">—</span>
+          </div>
+          <div class="breakdown-item deduct">
+            <span class="b-label">Health insurance</span>
+            <span class="b-val" id="th-health-ded">—</span>
+          </div>
+          <div class="breakdown-item net" style="grid-column: 1/-1;">
+            <span class="b-label">Monthly take-home</span>
+            <span class="b-val" id="th-monthly-net">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-slot">AdSense Ad — 300×250 Square</div>
+  </div>
+</div>
+
+<!-- ===================== TAB 3: COST OF LIVING ===================== -->
+<div id="tab-col" class="tool-section">
+  <div class="single-tool-wrap" style="max-width: 700px;">
+    <div class="tool-card-big">
+      <h3>Cost of Living Salary Adjuster</h3>
+      <p class="tip" style="margin-bottom:1.5rem;">Is $80k in NYC the same as $50k in Austin? Find out the equivalent salary when moving between cities.</p>
+      <div class="col-grid">
+        <div>
+          <div class="section-title">From City</div>
+          <div class="field" style="margin-bottom:1rem;">
+            <label>CITY / REGION</label>
+            <select id="col-from-city">
+              <option value="1.0">Average US City</option>
+              <option value="2.1">New York City, NY</option>
+              <option value="1.95">San Francisco, CA</option>
+              <option value="1.7">Los Angeles, CA</option>
+              <option value="1.6">Seattle, WA</option>
+              <option value="1.5">Boston, MA</option>
+              <option value="1.4">Washington DC</option>
+              <option value="1.3">Chicago, IL</option>
+              <option value="1.1">Denver, CO</option>
+              <option value="0.9">Austin, TX</option>
+              <option value="0.85">Phoenix, AZ</option>
+              <option value="0.8">Dallas, TX</option>
+              <option value="0.75">Nashville, TN</option>
+              <option value="0.7">Atlanta, GA</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>YOUR CURRENT SALARY (USD)</label>
+            <input type="number" id="col-salary" placeholder="80000" value="80000">
+          </div>
+        </div>
+        <div>
+          <div class="section-title">To City</div>
+          <div class="field">
+            <label>CITY / REGION</label>
+            <select id="col-to-city">
+              <option value="1.0">Average US City</option>
+              <option value="2.1">New York City, NY</option>
+              <option value="1.95">San Francisco, CA</option>
+              <option value="1.7">Los Angeles, CA</option>
+              <option value="1.6">Seattle, WA</option>
+              <option value="1.5">Boston, MA</option>
+              <option value="1.4">Washington DC</option>
+              <option value="1.3">Chicago, IL</option>
+              <option value="1.1">Denver, CO</option>
+              <option value="0.9" selected>Austin, TX</option>
+              <option value="0.85">Phoenix, AZ</option>
+              <option value="0.8">Dallas, TX</option>
+              <option value="0.75">Nashville, TN</option>
+              <option value="0.7">Atlanta, GA</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button class="calc-btn" style="width:100%;" onclick="calcCOL()">Calculate Equivalent Salary →</button>
+      <div id="col-result" style="display:none; margin-top:1.5rem;">
+        <div class="col-result-banner">
+          <div class="equivalent" id="col-equiv">$0</div>
+          <div class="equiv-sub" id="col-equiv-sub">is the equivalent salary in the new city</div>
+        </div>
+        <div class="breakdown-grid" style="margin-top:1rem;">
+          <div class="breakdown-item">
+            <span class="b-label">Your current salary</span>
+            <span class="b-val" id="col-from-sal">—</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="b-label">Equivalent salary needed</span>
+            <span class="b-val net" id="col-to-sal" style="color:var(--accent-a)">—</span>
+          </div>
+          <div class="breakdown-item" style="grid-column:1/-1;">
+            <span class="b-label" id="col-verdict-label">Verdict</span>
+            <span class="b-val" id="col-verdict-val" style="font-size:14px; font-weight:400; color:var(--muted); line-height:1.6;">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-slot">AdSense Ad — 300×250 Square</div>
+  </div>
+</div>
+
+<!-- ===================== TAB 4: NEGOTIATION ===================== -->
+<div id="tab-negotiate" class="tool-section">
+  <div class="single-tool-wrap">
+    <div class="tool-card-big">
+      <h3>Salary Negotiation Script Generator</h3>
+      <p class="tip" style="margin-bottom:1.5rem;">Fill in the details below and get a ready-to-use negotiation script you can send by email or say on a call.</p>
+      <div class="field" style="margin-bottom:1rem;">
+        <label>JOB TITLE</label>
+        <input type="text" id="neg-title" placeholder="e.g. Software Engineer" value="Software Engineer">
+      </div>
+      <div class="field-row" style="margin-bottom:1rem;">
+        <div class="field">
+          <label>OFFER AMOUNT ($/year)</label>
+          <input type="number" id="neg-offer" placeholder="80000" value="80000">
+        </div>
+        <div class="field">
+          <label>TARGET AMOUNT ($/year)</label>
+          <input type="number" id="neg-target" placeholder="92000" value="92000">
+        </div>
+      </div>
+      <div class="field-row" style="margin-bottom:1rem;">
+        <div class="field">
+          <label>YEARS OF EXPERIENCE</label>
+          <input type="number" id="neg-exp" placeholder="4" value="4">
+        </div>
+        <div class="field">
+          <label>COMPETING OFFER?</label>
+          <select id="neg-competing">
+            <option value="no">No competing offer</option>
+            <option value="yes">Yes, I have another offer</option>
+          </select>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:1rem;">
+        <label>KEY STRENGTHS (optional)</label>
+        <textarea id="neg-strengths" placeholder="e.g. Led a team of 5, built a system that saved $200k, strong Python skills..."></textarea>
+      </div>
+      <div class="field" style="margin-bottom:1rem;">
+        <label>TONE</label>
+        <select id="neg-tone">
+          <option value="professional">Professional & Confident</option>
+          <option value="warm">Warm & Collaborative</option>
+          <option value="direct">Direct & Brief</option>
+        </select>
+      </div>
+      <button class="calc-btn" style="width:100%;" onclick="generateScript()">Generate My Negotiation Script →</button>
+      <div id="neg-result" class="neg-result"></div>
+      <button class="small-btn" id="neg-copy-btn" style="display:none;" onclick="copyScript()">Copy script to clipboard</button>
+    </div>
+    <div class="ad-slot">AdSense Ad — 300×250 Square</div>
+  </div>
+</div>
+
+<!-- BLOG SECTION -->
+<div style="max-width:900px; margin:0 auto; padding:3rem 1.5rem 1rem;">
+  <div style="text-align:center; margin-bottom:2rem;">
+    <div style="display:inline-block; background:rgba(74,222,128,0.1); color:var(--accent-a); font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:100px; margin-bottom:1rem; border:1px solid rgba(74,222,128,0.2);">Career Guides</div>
+    <h2 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; margin-bottom:0.5rem;">Learn How to Make Better Career Decisions</h2>
+    <p style="color:var(--muted); font-size:0.95rem;">Free guides to help you negotiate, compare, and choose the right job offer.</p>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.2rem;">
+    <a href="how-to-compare-job-offers.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">📊</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 7 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Compare Two Job Offers — The Complete Guide</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Learn how to compare salary, take-home pay, benefits, commute and cost of living to find which offer is truly worth more.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+    <a href="how-to-negotiate-a-job-offer.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">💰</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 8 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Negotiate a Job Offer — Step by Step</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Scripts, strategies and tips to get more money, better benefits and the offer you truly deserve.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+    <a href="how-cost-of-living-affects-your-salary.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🏙️</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 8 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How Cost of Living Affects Your Salary</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Why a $100k salary in NYC can be worth less than $60k in Austin — and how to adjust for cost of living when comparing offers.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p><strong style="color:var(--text); font-family:'Syne',sans-serif;">OfferVault</strong> — Free job offer comparison tools</p>
+  <p style="margin-top:6px;">Calculations are estimates for informational purposes. Tax figures are simplified US federal brackets. Always consult a financial advisor for major decisions.</p>
+  <p style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tool-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function getStr(id) { return document.getElementById(id).value.trim(); }
+
+function calculateComparison() {
+  const aName = getStr('a-company') || 'Offer A';
+  const bName = getStr('b-company') || 'Offer B';
+
+  // -- Offer A --
+  const aSalary = getVal('a-salary');
+  const aBonus  = getVal('a-bonus');
+  const aStock  = getVal('a-stock');
+  const aHealth = getVal('a-health') * 12;
+  const aCommDays = getVal('a-commute-days');
+  const aCommCost = getVal('a-commute-cost');
+  const aCommuteAnnual = aCommDays * 2 * 50 * aCommCost;
+  const a401k = getVal('a-401k');
+  const aPTO  = getVal('a-pto') * getVal('a-pto-val');
+  const aPerks = getVal('a-perks');
+  const aTax   = parseFloat(document.getElementById('a-tax').value);
+  const aGrowth = parseInt(document.getElementById('a-growth').value);
+
+  // -- Offer B --
+  const bSalary = getVal('b-salary');
+  const bBonus  = getVal('b-bonus');
+  const bStock  = getVal('b-stock');
+  const bHealth = getVal('b-health') * 12;
+  const bCommDays = getVal('b-commute-days');
+  const bCommCost = getVal('b-commute-cost');
+  const bCommuteAnnual = bCommDays * 2 * 50 * bCommCost;
+  const b401k = getVal('b-401k');
+  const bPTO  = getVal('b-pto') * getVal('b-pto-val');
+  const bPerks = getVal('b-perks');
+  const bTax   = parseFloat(document.getElementById('b-tax').value);
+  const bGrowth = parseInt(document.getElementById('b-growth').value);
+
+  // Totals
+  const aTotalComp = aSalary + aBonus + aStock;
+  const bTotalComp = bSalary + bBonus + bStock;
+
+  const aHiddenCosts = aHealth + aCommuteAnnual;
+  const bHiddenCosts = bHealth + bCommuteAnnual;
+
+  const aBenefits = a401k + aPTO + aPerks;
+  const bBenefits = b401k + bPTO + bPerks;
+
+  // Take-home (simplified: salary after tax, minus FICA 7.65%)
+  const aTakeHome = (aSalary * (1 - aTax) * (1 - 0.0765)) + aBonus * (1 - aTax) - aHiddenCosts + aBenefits;
+  const bTakeHome = (bSalary * (1 - bTax) * (1 - 0.0765)) + bBonus * (1 - bTax) - bHiddenCosts + bBenefits;
+
+  const diff = bTotalComp - aTotalComp;
+  const thDiff = (bTakeHome - aTakeHome) / 12;
+
+  // Scores (0-100)
+  const maxComp = Math.max(aTotalComp, bTotalComp);
+  const scoreComp = { a: Math.round(aTotalComp/maxComp*100), b: Math.round(bTotalComp/maxComp*100) };
+
+  const maxTH = Math.max(aTakeHome, bTakeHome);
+  const scoreTH = { a: Math.round(aTakeHome/maxTH*100), b: Math.round(bTakeHome/maxTH*100) };
+
+  const maxBen = Math.max(aBenefits + 1, bBenefits + 1);
+  const scoreBen = { a: Math.round(aBenefits/maxBen*100), b: Math.round(bBenefits/maxBen*100) };
+
+  const maxCost = Math.max(aHiddenCosts + 1, bHiddenCosts + 1);
+  const scoreCost = { a: Math.round((1 - aHiddenCosts/maxCost)*100), b: Math.round((1 - bHiddenCosts/maxCost)*100) };
+
+  const maxGrowth = 3;
+  const scoreGrowth = { a: Math.round(aGrowth/maxGrowth*100), b: Math.round(bGrowth/maxGrowth*100) };
+
+  const aOverall = Math.round((scoreComp.a*0.3 + scoreTH.a*0.3 + scoreBen.a*0.15 + scoreCost.a*0.15 + scoreGrowth.a*0.1));
+  const bOverall = Math.round((scoreComp.b*0.3 + scoreTH.b*0.3 + scoreBen.b*0.15 + scoreCost.b*0.15 + scoreGrowth.b*0.1));
+
+  // Update UI
+  document.querySelectorAll('#rc-a-name, #rc-b-name').forEach(() => {});
+  document.getElementById('rc-a-name').textContent = aName;
+  document.getElementById('rc-b-name').textContent = bName;
+
+  document.getElementById('rc-a-total').textContent = fmt(aTotalComp);
+  document.getElementById('rc-b-total').textContent = fmt(bTotalComp);
+  document.getElementById('rc-diff').textContent = (diff >= 0 ? '+' : '') + fmt(Math.abs(diff)) + ' ' + (diff >= 0 ? '(B higher)' : '(A higher)');
+  document.getElementById('rc-diff').style.color = diff >= 0 ? '#60a5fa' : '#4ade80';
+
+  document.getElementById('th-a').textContent = fmt(aTakeHome);
+  document.getElementById('th-b').textContent = fmt(bTakeHome);
+  document.getElementById('th-monthly').textContent = fmt(Math.abs(thDiff)) + '/mo ' + (thDiff >= 0 ? '(B higher)' : '(A higher)');
+  document.getElementById('th-monthly').style.color = thDiff >= 0 ? '#60a5fa' : '#4ade80';
+
+  document.getElementById('hc-a').textContent = fmt(aHiddenCosts);
+  document.getElementById('hc-b').textContent = fmt(bHiddenCosts);
+
+  document.getElementById('bv-a').textContent = fmt(aBenefits);
+  document.getElementById('bv-b').textContent = fmt(bBenefits);
+
+  // Score bars
+  const bars = [
+    { label: 'Total comp', a: scoreComp.a, b: scoreComp.b },
+    { label: 'Take-home pay', a: scoreTH.a, b: scoreTH.b },
+    { label: 'Benefits value', a: scoreBen.a, b: scoreBen.b },
+    { label: 'Low hidden costs', a: scoreCost.a, b: scoreCost.b },
+    { label: 'Career growth', a: scoreGrowth.a, b: scoreGrowth.b },
+    { label: 'Overall score', a: aOverall, b: bOverall },
+  ];
+  const barsHtml = bars.map(bar => `
+    <div class="score-bar-row">
+      <span class="score-bar-label">${bar.label}</span>
+      <div class="score-bars">
+        <div class="score-bar-bg"><div class="score-bar-fill fill-a" style="width:${bar.a}%"></div></div>
+        <div class="score-bar-bg"><div class="score-bar-fill fill-b" style="width:${bar.b}%"></div></div>
+      </div>
+      <div class="score-vals" style="min-width:80px; font-size:12px; padding-left:8px;">
+        <span style="color:#4ade80">${bar.a}</span>
+        <span style="color:#60a5fa">${bar.b}</span>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('score-bars').innerHTML = barsHtml;
+
+  // Winner
+  const winner = aOverall >= bOverall ? aName : bName;
+  const loser  = aOverall >= bOverall ? bName : aName;
+  const winScore = Math.max(aOverall, bOverall);
+  const loseScore = Math.min(aOverall, bOverall);
+  document.getElementById('winner-name').textContent = winner + ' wins';
+  document.getElementById('winner-name').style.color = aOverall >= bOverall ? '#4ade80' : '#60a5fa';
+
+  const winDiff = Math.abs(aOverall - bOverall);
+  let strength = winDiff >= 15 ? 'clearly' : winDiff >= 7 ? 'slightly' : 'very narrowly';
+
+  const wTH = aOverall >= bOverall ? fmt(aTakeHome) : fmt(bTakeHome);
+  const lTH = aOverall >= bOverall ? fmt(bTakeHome) : fmt(aTakeHome);
+
+  document.getElementById('winner-reason').textContent =
+    `${winner} is ${strength} the better overall offer with a score of ${winScore} vs ${loseScore}.`;
+
+  // Verdict
+  const monthlyDiff = Math.abs(thDiff);
+  document.getElementById('verdict-text').innerHTML =
+    `<strong style="color:var(--accent-a)">${winner}</strong> is the stronger offer overall. ` +
+    `It scores ${winScore}/100 versus ${loser}'s ${loseScore}/100 across compensation, take-home pay, benefits, hidden costs, and career growth. ` +
+    `The difference in real annual take-home value is approximately <strong style="color:var(--text)">${fmt(Math.abs(aTakeHome - bTakeHome))}</strong> ` +
+    `(${fmt(monthlyDiff)}/month). ` +
+    (winDiff < 6 ? `The offers are very close — consider which company culture and growth path aligns better with your long-term goals.` :
+    `Unless ${loser} offers something not captured here (like stronger culture or location preference), ${winner} is the clear choice.`);
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function calcTakeHome() {
+  const gross = getVal('th-salary');
+  const stateTax = parseFloat(document.getElementById('th-state').value);
+  const contrib401k = getVal('th-401k') / 100;
+  const healthMo = getVal('th-health');
+
+  const pre401k = gross * contrib401k;
+  const taxableIncome = gross - pre401k;
+
+  // US Federal brackets 2024 (single, simplified)
+  let fedTax = 0;
+  const brackets = [[11600, 0.10],[47150,0.12],[100525,0.22],[191950,0.24],[243725,0.32],[609350,0.35],[Infinity,0.37]];
+  let prev = 0;
+  for (const [limit, rate] of brackets) {
+    if (taxableIncome <= prev) break;
+    fedTax += (Math.min(taxableIncome, limit) - prev) * rate;
+    prev = limit;
+  }
+
+  const fica = gross * 0.0765;
+  const stTax = taxableIncome * stateTax;
+  const healthAnnual = healthMo * 12;
+
+  const takeHome = gross - fedTax - stTax - fica - pre401k - healthAnnual;
+
+  document.getElementById('th-main-val').textContent = fmt(takeHome);
+  document.getElementById('th-gross').textContent = fmt(gross);
+  document.getElementById('th-fed').textContent = '-' + fmt(fedTax);
+  document.getElementById('th-state-tax').textContent = '-' + fmt(stTax);
+  document.getElementById('th-fica').textContent = '-' + fmt(fica);
+  document.getElementById('th-401k-ded').textContent = '-' + fmt(pre401k);
+  document.getElementById('th-health-ded').textContent = '-' + fmt(healthAnnual);
+  document.getElementById('th-monthly-net').textContent = fmt(takeHome / 12) + '/month';
+
+  document.getElementById('th-result').style.display = 'block';
+}
+
+function calcCOL() {
+  const fromIdx = parseFloat(document.getElementById('col-from-city').value);
+  const toIdx   = parseFloat(document.getElementById('col-to-city').value);
+  const salary  = getVal('col-salary');
+
+  const equivalent = salary * (toIdx / fromIdx);
+  const fromCity = document.getElementById('col-from-city').selectedOptions[0].text;
+  const toCity   = document.getElementById('col-to-city').selectedOptions[0].text;
+
+  document.getElementById('col-equiv').textContent = fmt(equivalent);
+  document.getElementById('col-equiv-sub').textContent = `is the equivalent salary in ${toCity}`;
+  document.getElementById('col-from-sal').textContent = fmt(salary) + ' in ' + fromCity;
+  document.getElementById('col-to-sal').textContent = fmt(equivalent) + ' in ' + toCity;
+
+  const diff = equivalent - salary;
+  const pct  = Math.abs(((equivalent - salary) / salary) * 100).toFixed(1);
+  let verdictText;
+  if (Math.abs(diff) < 2000) {
+    verdictText = 'The cost of living is nearly identical between these two cities. Your salary transfers well.';
+  } else if (diff < 0) {
+    verdictText = `Moving from ${fromCity} to ${toCity} means your money goes FURTHER. Your ${fmt(salary)} salary effectively becomes worth ${fmt(equivalent)} — that's ${pct}% more purchasing power. Any salary above ${fmt(equivalent)} is a real raise.`;
+  } else {
+    verdictText = `${toCity} is more expensive. You'd need ${fmt(equivalent)} (${pct}% more) to maintain your current lifestyle. If the new offer pays less than ${fmt(equivalent)}, it's effectively a pay cut.`;
+  }
+
+  document.getElementById('col-verdict-val').textContent = verdictText;
+  document.getElementById('col-result').style.display = 'block';
+}
+
+function generateScript() {
+  const title   = getStr('neg-title') || 'the position';
+  const offer   = getVal('neg-offer');
+  const target  = getVal('neg-target');
+  const exp     = getVal('neg-exp');
+  const competing = document.getElementById('neg-competing').value;
+  const strengths = getStr('neg-strengths');
+  const tone    = document.getElementById('neg-tone').value;
+
+  const increase = target - offer;
+  const pct = ((increase / offer) * 100).toFixed(1);
+
+  let script = '';
+
+  if (tone === 'professional') {
+    script = `<strong>Subject: Re: Offer for ${title} — Salary Discussion</strong><br><br>`;
+    script += `Thank you so much for extending this offer — I'm genuinely excited about the opportunity to join the team as ${title} and contribute to [Company Name]'s goals.<br><br>`;
+    script += `After careful consideration, I'd like to respectfully discuss the base salary. `;
+    if (strengths) script += `With ${exp} years of experience in this space — including ${strengths} — `;
+    else script += `With ${exp} years of relevant experience, `;
+    script += `I've benchmarked the role and believe a salary in the range of <strong>${fmt(target)}</strong> more accurately reflects my market value and the value I'll bring.<br><br>`;
+    if (competing === 'yes') {
+      script += `I do want to be transparent — I'm currently evaluating another offer in a similar range. However, this role is my first choice, and I'd love to make it work.<br><br>`;
+    }
+    script += `I'm confident in my ability to deliver strong results from day one, and I hope we can find an arrangement that works for both of us. I'm flexible on the structure — whether that's a higher base, a sign-on bonus, or accelerated review timeline.<br><br>`;
+    script += `Thank you for your consideration. I look forward to your thoughts.`;
+  } else if (tone === 'warm') {
+    script = `<strong>Subject: Offer Follow-Up — ${title}</strong><br><br>`;
+    script += `I really appreciate the offer — I've had a great experience through the whole process and I'm genuinely enthusiastic about this role.<br><br>`;
+    script += `I wanted to have an open conversation about the salary. `;
+    if (strengths) script += `I bring ${exp} years of hands-on experience and some specific wins I'm proud of: ${strengths}. `;
+    script += `Based on my research and what I'd bring to the team, I was hoping we could get closer to <strong>${fmt(target)}</strong>.<br><br>`;
+    if (competing === 'yes') script += `I'll be honest — I have another offer on the table, but this team really is my first choice. I just want to make sure I'm making the best decision for my family too.<br><br>`;
+    script += `I'm totally open to discussing the full package — base, bonus, or even a faster review cycle. What flexibility do you have? I really want to make this work!`;
+  } else {
+    script = `<strong>Subject: ${title} Offer — Salary Question</strong><br><br>`;
+    script += `Thank you for the offer.<br><br>`;
+    script += `I'd like to request a base salary of <strong>${fmt(target)}</strong>. `;
+    script += `This reflects my ${exp} years of experience and market benchmarks for this role.`;
+    if (strengths) script += ` I bring specific value: ${strengths}.`;
+    if (competing === 'yes') script += ` I have a competing offer in this range.`;
+    script += `<br><br>Happy to discuss. When can we talk?`;
+  }
+
+  const el = document.getElementById('neg-result');
+  el.innerHTML = script;
+  el.classList.add('show');
+  document.getElementById('neg-copy-btn').style.display = 'inline-block';
+}
+
+function copyScript() {
+  const text = document.getElementById('neg-result').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('neg-copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy script to clipboard'; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

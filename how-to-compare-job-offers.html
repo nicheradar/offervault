@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Compare Two Job Offers — Complete Guide | OfferVault</title>
+<meta name="description" content="Got two job offers? Learn exactly how to compare them — salary, take-home pay, benefits, commute, and cost of living. Step-by-step guide with free calculator.">
+<meta name="keywords" content="how to compare two job offers, job offer comparison, salary calculator, take home pay, compare job offers checklist">
+<link rel="canonical" href="https://job-offer-calculator.netlify.app/how-to-compare-job-offers.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Compare Two Job Offers — Complete Guide",
+  "description": "A complete step-by-step guide to comparing two job offers including salary, benefits, commute, taxes and cost of living.",
+  "author": { "@type": "Organization", "name": "OfferVault" },
+  "publisher": { "@type": "Organization", "name": "OfferVault", "url": "https://job-offer-calculator.netlify.app" },
+  "datePublished": "2026-05-02",
+  "dateModified": "2026-05-02"
+}
+</script>
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --bg2: #13151a;
+    --bg3: #1c1f27;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #f0f1f3;
+    --muted: #7a7f8e;
+    --accent-a: #4ade80;
+    --accent-b: #60a5fa;
+    --accent-warn: #fb923c;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent-a); }
+  .nav-cta {
+    background: var(--accent-a);
+    color: #000;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    max-width: 780px;
+    margin: 4rem auto 2rem;
+    padding: 0 1.5rem;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(74,222,128,0.1);
+    color: var(--accent-a);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(74,222,128,0.2);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    color: var(--text);
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--accent-a);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+  .hero-intro {
+    font-size: 1.15rem;
+    color: #c5c8d0;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 3rem 0 1rem;
+    color: var(--text);
+  }
+  h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 2rem 0 0.6rem;
+    color: var(--accent-b);
+  }
+  p { margin-bottom: 1.2rem; color: #c5c8d0; }
+  strong { color: var(--text); font-weight: 600; }
+
+  /* CALLOUT BOX */
+  .callout {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--accent-a);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    margin: 2rem 0;
+  }
+  .callout-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-a);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .callout p { margin: 0; font-size: 0.95rem; }
+
+  /* STEP CARDS */
+  .steps { display: flex; flex-direction: column; gap: 1.2rem; margin: 2rem 0; }
+  .step-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .step-card:hover { border-color: var(--border2); }
+  .step-num {
+    background: rgba(74,222,128,0.1);
+    color: var(--accent-a);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(74,222,128,0.2);
+  }
+  .step-body h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--text); }
+  .step-body p { margin: 0; font-size: 0.93rem; }
+
+  /* COMPARISON TABLE */
+  .table-wrap { overflow-x: auto; margin: 2rem 0; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  thead { background: var(--bg3); }
+  th {
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  td { padding: 0.85rem 1.2rem; border-top: 1px solid var(--border); color: #c5c8d0; }
+  tr:hover td { background: var(--bg2); }
+  .tag-important { color: var(--accent-a); font-weight: 600; }
+  .tag-medium { color: var(--accent-warn); font-weight: 600; }
+  .tag-low { color: var(--muted); }
+
+  /* EXAMPLE BOX */
+  .example-box {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    margin: 2rem 0;
+  }
+  .example-box .ex-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-b);
+    margin-bottom: 1rem;
+  }
+  .ex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .ex-offer {
+    background: var(--bg2);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    border: 1px solid var(--border);
+  }
+  .ex-offer h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+  .ex-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+  .ex-row:last-child { border-bottom: none; }
+  .ex-row .label { color: var(--muted); }
+  .ex-row .val { font-weight: 600; }
+  .val.green { color: var(--accent-a); }
+  .val.blue { color: var(--accent-b); }
+  .val.warn { color: var(--accent-warn); }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(74,222,128,0.08), rgba(96,165,250,0.08));
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  .cta-section h2 { margin: 0 0 0.8rem; font-size: 1.5rem; }
+  .cta-section p { margin: 0 0 1.5rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent-a);
+    color: #000;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* FAQ */
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 1.1rem 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg2);
+    font-size: 0.97rem;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--bg3); }
+  .faq-icon { color: var(--accent-a); font-size: 1.2rem; transition: transform 0.2s; }
+  .faq-a {
+    display: none;
+    padding: 1rem 1.4rem 1.2rem;
+    font-size: 0.93rem;
+    color: #c5c8d0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--accent-a); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .ex-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Offer<span>Vault</span></a>
+  <a href="index.html" class="nav-cta">Try the Calculator →</a>
+</nav>
+
+<article>
+  <div class="hero">
+    <div class="hero-tag">Career Guide</div>
+    <h1>How to Compare <em>Two Job Offers</em> — The Complete Guide</h1>
+    <div class="hero-meta">
+      <span>📅 May 2, 2026</span>
+      <span>⏱ 7 min read</span>
+      <span>👤 For everyone job hunting</span>
+    </div>
+    <p class="hero-intro">
+      Got two job offers on the table? Congratulations — but now comes the hard part. Most people compare job offers the wrong way by only looking at base salary. In reality, the higher-paying job on paper is often worth <strong>less money in your pocket</strong> once you factor in taxes, benefits, commute costs, and cost of living. This guide walks you through exactly how to compare two job offers the right way.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <div class="callout">
+      <div class="callout-title">💡 Quick Tip</div>
+      <p>Don't have time to read everything? Use our <a href="index.html" style="color:var(--accent-a)">free job offer comparison calculator</a> to compare both offers in under 2 minutes — it factors in taxes, benefits, commute and cost of living automatically.</p>
+    </div>
+
+    <h2>Why Most People Compare Job Offers Wrong</h2>
+    <p>The most common mistake is simple: people look at the salary number and pick the bigger one. But salary is just the starting point. Two job offers with the same salary can have <strong>vastly different real-world values</strong> depending on:</p>
+    <p>Health insurance alone can be worth $5,000–$15,000 per year. A long commute can cost you $3,000–$6,000 annually plus hours of your life every week. A job in an expensive city might pay $20,000 more but leave you with less purchasing power than a lower-paying job in a cheaper city.</p>
+
+    <h2>The 6 Things You Must Compare</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Base Salary & Bonuses</h3>
+          <p>Start with gross salary but always include signing bonuses, annual bonuses, and commission. A $80k base with a guaranteed $10k bonus beats a $85k base with no bonus.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Take-Home Pay After Taxes</h3>
+          <p>Your actual paycheck depends on federal tax, state/local tax, Social Security and Medicare. Two identical salaries in different states can result in very different take-home pay — for example, Texas has no state income tax while California can take over 9%.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Health Insurance & Benefits</h3>
+          <p>Calculate the annual value of health, dental and vision insurance. Also consider 401k matching — a 4% employer match on a $80k salary is worth $3,200 per year of free money.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Commute Costs & Time</h3>
+          <p>Add up fuel, parking, tolls, or public transport per month and multiply by 12. Also value your time — a 1-hour daily commute costs you 250+ hours per year. Remote or hybrid work is often worth a salary cut.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Cost of Living</h3>
+          <p>If the jobs are in different cities, adjust for cost of living. A $100k salary in San Francisco has the same purchasing power as roughly $50k–$60k in many mid-sized American cities.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Career Growth & Job Security</h3>
+          <p>A lower-paying job at a fast-growing company with clear promotion paths may be worth far more in 3–5 years than a higher-paying job with no growth ceiling.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Real Example: $90k vs $80k</h2>
+    <p>Let's look at a real comparison. At first glance, Job A seems like the obvious choice. But watch what happens when you factor everything in:</p>
+
+    <div class="example-box">
+      <div class="ex-title">📊 Side-by-Side Comparison</div>
+      <div class="ex-grid">
+        <div class="ex-offer">
+          <h4>Job A — $90,000</h4>
+          <div class="ex-row"><span class="label">Base Salary</span><span class="val green">$90,000</span></div>
+          <div class="ex-row"><span class="label">State Tax (CA)</span><span class="val warn">-$8,100</span></div>
+          <div class="ex-row"><span class="label">Health Insurance</span><span class="val warn">-$6,000</span></div>
+          <div class="ex-row"><span class="label">Commute (1hr/day)</span><span class="val warn">-$4,800</span></div>
+          <div class="ex-row"><span class="label">401k Match</span><span class="val">$0</span></div>
+          <div class="ex-row"><span class="label">Real Value</span><span class="val warn">~$71,100</span></div>
+        </div>
+        <div class="ex-offer">
+          <h4>Job B — $80,000</h4>
+          <div class="ex-row"><span class="label">Base Salary</span><span class="val blue">$80,000</span></div>
+          <div class="ex-row"><span class="label">State Tax (TX)</span><span class="val green">$0</span></div>
+          <div class="ex-row"><span class="label">Health Insurance</span><span class="val green">$0 (covered)</span></div>
+          <div class="ex-row"><span class="label">Commute (remote)</span><span class="val green">$0</span></div>
+          <div class="ex-row"><span class="label">401k Match (4%)</span><span class="val green">+$3,200</span></div>
+          <div class="ex-row"><span class="label">Real Value</span><span class="val green">~$83,200</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p>The $80,000 job is actually worth <strong>$12,100 more per year</strong> than the $90,000 job. This is exactly why you must compare everything — not just the salary number.</p>
+
+    <h2>Job Offer Comparison Checklist</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Importance</th>
+            <th>What to Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Base Salary</td><td><span class="tag-important">High</span></td><td>Annual gross + bonuses</td></tr>
+          <tr><td>Take-Home Pay</td><td><span class="tag-important">High</span></td><td>After all taxes & deductions</td></tr>
+          <tr><td>Health Insurance</td><td><span class="tag-important">High</span></td><td>Monthly premium you pay</td></tr>
+          <tr><td>401k / Retirement</td><td><span class="tag-important">High</span></td><td>Employer match percentage</td></tr>
+          <tr><td>Commute Cost</td><td><span class="tag-medium">Medium</span></td><td>Monthly transport + parking</td></tr>
+          <tr><td>Cost of Living</td><td><span class="tag-medium">Medium</span></td><td>City-to-city adjustment</td></tr>
+          <tr><td>PTO / Vacation</td><td><span class="tag-medium">Medium</span></td><td>Days per year</td></tr>
+          <tr><td>Remote / Hybrid</td><td><span class="tag-medium">Medium</span></td><td>Days in office per week</td></tr>
+          <tr><td>Career Growth</td><td><span class="tag-low">Consider</span></td><td>Promotion timeline, company stage</td></tr>
+          <tr><td>Job Security</td><td><span class="tag-low">Consider</span></td><td>Company stability, industry growth</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to Calculate Take-Home Pay</h2>
+    <p>To estimate your take-home pay, subtract the following from your gross salary:</p>
+    <p><strong>Federal income tax</strong> — ranges from 10% to 37% depending on your income bracket. For most people earning $50k–$120k, expect to pay around 22% federal tax.</p>
+    <p><strong>State income tax</strong> — varies widely. States like Texas, Florida and Washington have 0% state tax. California can be as high as 13.3%.</p>
+    <p><strong>Social Security & Medicare (FICA)</strong> — a flat 7.65% on your salary.</p>
+    <p>Or skip the math entirely and use our <a href="index.html" style="color:var(--accent-a)">free salary calculator</a> which does all of this automatically.</p>
+
+    <div class="cta-section">
+      <h2>Ready to Compare Your Offers?</h2>
+      <p>Use our free tool to compare both job offers side by side in under 2 minutes. No signup required.</p>
+      <a href="index.html" class="cta-btn">Compare My Job Offers Free →</a>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I compare two job offers with different salaries? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Start by calculating the take-home pay for each offer after taxes. Then subtract annual costs like health insurance premiums, commute expenses, and adjust for cost of living if the jobs are in different cities. Add back any benefits like 401k matching. The offer with the highest net value is the better financial choice.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I take the higher salary or better benefits? <span class="faq-icon">+</span></div>
+      <div class="faq-a">It depends on the dollar value of the benefits. Health insurance, 401k matching, and remote work can easily be worth $10,000–$20,000 per year. Always calculate the total compensation value of both offers before deciding.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much is a 401k match worth? <span class="faq-icon">+</span></div>
+      <div class="faq-a">A 4% 401k match on a $80,000 salary is worth $3,200 per year — that is essentially free money added to your retirement. Over 10 years with compounding, this could be worth $50,000+. Always factor this into your job offer comparison.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I factor in cost of living when comparing job offers? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Use a cost of living index to compare cities. A salary of $100,000 in New York City has roughly the same purchasing power as $60,000–$65,000 in a mid-sized city like Austin or Denver. Our calculator includes a cost of living adjustment feature.</div>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="index.html">OfferVault</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.closest('.faq-item').classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
