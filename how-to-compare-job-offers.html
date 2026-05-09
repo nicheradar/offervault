@@ -65,6 +65,14 @@
     text-decoration: none;
   }
   .nav-logo span { color: var(--accent-a); }
+  .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+  .nav-guides {
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-guides:hover { color: var(--text); }
   .nav-cta {
     background: var(--accent-a);
     color: #000;
@@ -314,6 +322,62 @@
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-icon { transform: rotate(45deg); }
 
+  /* RELATED ARTICLES */
+  .related-section {
+    margin: 3rem 0 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .related-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .related-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .related-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .related-card .rc-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent-a);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .related-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .related-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+  }
+
   /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
@@ -334,7 +398,10 @@
 
 <nav>
   <a href="index.html" class="nav-logo">Offer<span>Vault</span></a>
-  <a href="index.html" class="nav-cta">Try the Calculator →</a>
+  <div class="nav-right">
+    <a href="guides.html" class="nav-guides">Guides</a>
+    <a href="index.html" class="nav-cta">Try the Calculator →</a>
+  </div>
 </nav>
 
 <article>
@@ -494,11 +561,48 @@
       <div class="faq-a">Use a cost of living index to compare cities. A salary of $100,000 in New York City has roughly the same purchasing power as $60,000–$65,000 in a mid-sized city like Austin or Denver. Our calculator includes a cost of living adjustment feature.</div>
     </div>
 
+    <!-- RELATED ARTICLES -->
+    <div class="related-section">
+      <div class="related-title">Keep Reading</div>
+      <div class="related-grid">
+        <a href="how-to-negotiate-a-job-offer.html" class="related-card">
+          <div class="rc-tag">💰 Negotiation</div>
+          <h4>How to Negotiate a Job Offer Step by Step</h4>
+          <p>Scripts and strategies to get more money and better benefits from any offer.</p>
+        </a>
+        <a href="salary-negotiation-mistakes.html" class="related-card">
+          <div class="rc-tag">⚠️ Negotiation</div>
+          <h4>7 Salary Negotiation Mistakes That Cost You Thousands</h4>
+          <p>Avoid these common mistakes before responding to any job offer.</p>
+        </a>
+        <a href="how-to-evaluate-a-job-offer.html" class="related-card">
+          <div class="rc-tag">🔍 Evaluation</div>
+          <h4>How to Evaluate a Job Offer the Right Way</h4>
+          <p>A complete framework for assessing every part of an offer.</p>
+        </a>
+        <a href="signs-job-offer-is-too-low.html" class="related-card">
+          <div class="rc-tag">🚩 Warning Signs</div>
+          <h4>9 Signs Your Job Offer Is Too Low</h4>
+          <p>Know when to push back — and when to walk away entirely.</p>
+        </a>
+        <a href="what-is-a-good-salary-2026.html" class="related-card">
+          <div class="rc-tag">📈 Salary Data</div>
+          <h4>What Is a Good Salary in 2026?</h4>
+          <p>Salary benchmarks by city, age group, and industry with real data.</p>
+        </a>
+        <a href="how-to-calculate-take-home-pay.html" class="related-card">
+          <div class="rc-tag">🧮 Salary Guide</div>
+          <h4>How to Calculate Your True Take-Home Pay</h4>
+          <p>What you actually take home after every tax and deduction.</p>
+        </a>
+      </div>
+    </div>
+
   </div>
 </article>
 
 <footer>
-  <p>© 2026 <a href="index.html">OfferVault</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a></p>
+  <p>© 2026 <a href="index.html">OfferVault</a> · <a href="guides.html">Guides</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a></p>
 </footer>
 
 <script>
