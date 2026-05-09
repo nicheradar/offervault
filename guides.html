@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Guides — Salary & Job Offer Help | OfferVault</title>
+  <meta name="description" content="Free guides on how to compare job offers, negotiate salary, evaluate benefits, and calculate your real take-home pay. Everything you need to make the right career decision." />
+  <meta name="keywords" content="job offer guides, salary negotiation guide, how to compare job offers, take home pay, job offer tips 2026" />
+  <link rel="canonical" href="https://offervault-mu.vercel.app/guides.html" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      background: #0f1117;
+      border-bottom: 1px solid #1e293b;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      color: #f1f5f9;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-right .free-badge {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .nav-cta {
+      background: #3b82f6;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #2563eb; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .hero-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3b82f6;
+      background: rgba(59,130,246,0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: #3b82f6; }
+    .hero p {
+      font-size: 1rem;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: #2563eb; }
+
+    /* MAIN */
+    .main { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* SECTION HEADING */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #475569;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    /* FEATURED CARD */
+    .featured-card {
+      background: #161b27;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 40px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .featured-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px #3b82f620, 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .featured-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .featured-card .fc-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #3b82f6;
+      margin-bottom: 8px;
+    }
+    .featured-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .featured-card p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .featured-card .fc-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .featured-card .fc-readmore {
+      color: #3b82f6;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+    @media (max-width: 580px) {
+      .featured-card { flex-direction: column; }
+    }
+
+    /* GUIDES GRID */
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .guide-card {
+      background: #161b27;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .guide-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transform: translateY(-2px);
+    }
+    .guide-card .gc-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .guide-card .gc-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #3b82f6;
+      margin-bottom: 8px;
+    }
+    .guide-card h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .guide-card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 16px;
+    }
+    .guide-card .gc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      margin-top: auto;
+    }
+    .guide-card .gc-time { color: #475569; }
+    .guide-card .gc-read { color: #3b82f6; font-weight: 700; }
+
+    /* INLINE CTA */
+    .inline-cta {
+      background: #161b27;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 8px 0 48px;
+    }
+    .inline-cta h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .inline-cta p {
+      color: #94a3b8;
+      font-size: 0.93rem;
+      max-width: 460px;
+      margin: 0 auto 24px;
+    }
+    .inline-cta a {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .inline-cta a:hover { background: #2563eb; }
+
+    /* FOOTER */
+    footer {
+      background: #0a0d14;
+      border-top: 1px solid #1e293b;
+      color: #475569;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+    }
+    footer strong { color: #94a3b8; }
+    footer .footer-links { margin-top: 12px; }
+    footer a { color: #64748b; text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">⚖️ OfferVault</a>
+  <div class="nav-right">
+    <span class="free-badge">100% Free</span>
+    <a href="/" class="nav-cta">← Back to Calculator</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Career Guides</div>
+  <h1>Learn How to Make <span>Better Career Decisions</span></h1>
+  <p>Free guides to help you negotiate salary, compare job offers, and choose the right opportunity — with confidence.</p>
+  <a href="/" class="hero-cta">Try the Free Calculator →</a>
+</div>
+
+<div class="main">
+
+  <!-- FEATURED -->
+  <div class="section-label">Most Popular</div>
+  <a href="/how-to-compare-job-offers.html" class="featured-card">
+    <div class="featured-icon">⚖️</div>
+    <div>
+      <div class="fc-tag">📊 Most Read · Guide</div>
+      <h2>How to Compare Two Job Offers — The Complete Guide</h2>
+      <p>Most people compare job offers the wrong way — by salary alone. Learn how to factor in taxes, benefits, commute, and cost of living to find which offer actually puts more money in your pocket.</p>
+      <div class="fc-footer">
+        <span>⏱ 7 min read</span>
+        <span class="fc-readmore">Read guide →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- NEGOTIATION -->
+  <div class="section-label">Negotiation</div>
+  <div class="guides-grid">
+
+    <a href="/how-to-negotiate-a-job-offer.html" class="guide-card">
+      <div class="gc-icon">💰</div>
+      <div class="gc-tag">Guide · 8 min read</div>
+      <h3>How to Negotiate a Job Offer Step by Step</h3>
+      <p>Scripts, strategies and timing tips to get more money, better benefits, and the offer you actually deserve — without risking the job.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 8 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="/salary-negotiation-mistakes.html" class="guide-card">
+      <div class="gc-icon">⚠️</div>
+      <div class="gc-tag">Guide · 7 min read</div>
+      <h3>7 Salary Negotiation Mistakes That Cost You Thousands</h3>
+      <p>Most people leave money on the table without knowing it. These are the 7 mistakes to avoid before you respond to any offer.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 7 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- EVALUATION -->
+  <div class="section-label">Evaluating Offers</div>
+  <div class="guides-grid">
+
+    <a href="/how-to-evaluate-a-job-offer.html" class="guide-card">
+      <div class="gc-icon">🔍</div>
+      <div class="gc-tag">Guide · 6 min read</div>
+      <h3>How to Evaluate a Job Offer the Right Way</h3>
+      <p>A step-by-step framework for assessing every part of a job offer — salary, benefits, growth, culture, and long-term value.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 6 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="/signs-job-offer-is-too-low.html" class="guide-card">
+      <div class="gc-icon">🚩</div>
+      <div class="gc-tag">Guide · 8 min read</div>
+      <h3>9 Signs Your Job Offer Is Too Low</h3>
+      <p>Something feels off about the offer but you can't put your finger on it? These 9 clear signs tell you when to push back — and when to walk away.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 8 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="/what-is-a-good-salary-2026.html" class="guide-card">
+      <div class="gc-icon">📈</div>
+      <div class="gc-tag">Guide · 6 min read</div>
+      <h3>What Is a Good Salary in 2026? By City, Age & Industry</h3>
+      <p>Is your offer competitive? We break down what counts as a good salary in 2026 by city, age group, and industry with real data.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 6 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- SALARY -->
+  <div class="section-label">Salary & Take-Home Pay</div>
+  <div class="guides-grid">
+
+    <a href="/how-to-calculate-take-home-pay.html" class="guide-card">
+      <div class="gc-icon">🧮</div>
+      <div class="gc-tag">Guide · 6 min read</div>
+      <h3>How to Calculate Your True Take-Home Pay</h3>
+      <p>The salary on your offer letter is not what lands in your bank account. Learn exactly what gets deducted — and what you actually keep.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 6 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="/how-cost-of-living-affects-your-salary.html" class="guide-card">
+      <div class="gc-icon">🏙️</div>
+      <div class="gc-tag">Guide · 6 min read</div>
+      <h3>How Cost of Living Affects Your Real Salary</h3>
+      <p>A $100K salary in New York and a $100K salary in Austin are not the same. Here's how to adjust for cost of living when comparing offers.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 6 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="/remote-work-vs-office-job-salary.html" class="guide-card">
+      <div class="gc-icon">🏠</div>
+      <div class="gc-tag">Guide · 5 min read</div>
+      <h3>Remote Work vs Office Job: Which Actually Pays More?</h3>
+      <p>Remote jobs often pay less on paper but save thousands in commute, clothing, and lunch costs. Here's the real comparison.</p>
+      <div class="gc-footer">
+        <span class="gc-time">⏱ 5 min read</span>
+        <span class="gc-read">Read guide →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="inline-cta">
+    <h2>Ready to Compare Your Offers?</h2>
+    <p>Use OfferVault's free calculator to see your real take-home pay, compare two offers side by side, and make your decision with confidence.</p>
+    <a href="/">Try the Free Calculator →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>OfferVault</strong> — Free job offer comparison tools</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/guides.html">Guides</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
