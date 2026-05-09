@@ -89,6 +89,9 @@
   nav { position: sticky; top: 0; z-index: 100; background: rgba(11,12,15,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
   .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
   .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-a); display: inline-block; }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-guides { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-guides:hover { color: var(--text); }
   .nav-tag { font-size: 11px; font-weight: 500; background: rgba(74,222,128,0.12); color: var(--accent-a); border: 1px solid rgba(74,222,128,0.25); padding: 3px 10px; border-radius: 20px; }
   .nav-back { font-size: 13px; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
   .nav-back:hover { color: var(--text); }
@@ -143,6 +146,15 @@
   .breadcrumb { font-size: 12px; color: var(--muted); padding: 1rem 1.5rem 0; max-width: 760px; margin: 0 auto; }
   .breadcrumb a { color: var(--muted); text-decoration: none; }
   .breadcrumb a:hover { color: var(--accent-a); }
+  /* RELATED */
+  .related-section { margin: 3rem 0 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .related-title { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1.2rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .related-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+  .related-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .related-card .rc-tag { font-size: 0.72rem; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .related-card h4 { font-family: 'Syne', sans-serif; font-size: 0.93rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 0.5rem; }
+  .related-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin: 0; flex-grow: 1; }
   footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 13px; color: var(--muted); }
   footer a { color: var(--muted); text-decoration: none; margin: 0 8px; }
   footer a:hover { color: var(--accent-a); }
@@ -153,12 +165,16 @@
 
 <nav>
   <a href="https://offervault-mu.vercel.app" class="logo"><span class="logo-dot"></span>OfferVault</a>
-  <span class="nav-tag">Free Tool</span>
-  <a href="https://offervault-mu.vercel.app" class="nav-back">← Back to Calculator</a>
+  <div class="nav-right">
+    <a href="guides.html" class="nav-guides">Guides</a>
+    <span class="nav-tag">Free Tool</span>
+    <a href="https://offervault-mu.vercel.app" class="nav-back">← Back to Calculator</a>
+  </div>
 </nav>
 
 <div class="breadcrumb">
   <a href="https://offervault-mu.vercel.app">Home</a> ›
+  <a href="guides.html">Career Guides</a> ›
   How to Evaluate a Job Offer
 </div>
 
@@ -466,17 +482,55 @@
     <a href="https://offervault-mu.vercel.app" class="cta-btn">Evaluate My Offer Now →</a>
   </div>
 
+  <!-- RELATED ARTICLES -->
+  <div class="related-section">
+    <div class="related-title">Keep Reading</div>
+    <div class="related-grid">
+      <a href="how-to-compare-job-offers.html" class="related-card">
+        <div class="rc-tag">⚖️ Comparison</div>
+        <h4>How to Compare Two Job Offers the Right Way</h4>
+        <p>Factor in taxes, benefits, and commute to find the real winner.</p>
+      </a>
+      <a href="how-to-negotiate-a-job-offer.html" class="related-card">
+        <div class="rc-tag">💰 Negotiation</div>
+        <h4>How to Negotiate a Job Offer Step by Step</h4>
+        <p>Scripts and strategies to get more money from any offer.</p>
+      </a>
+      <a href="salary-negotiation-mistakes.html" class="related-card">
+        <div class="rc-tag">⚠️ Negotiation</div>
+        <h4>7 Salary Negotiation Mistakes That Cost You Thousands</h4>
+        <p>Avoid these mistakes before responding to any offer.</p>
+      </a>
+      <a href="signs-job-offer-is-too-low.html" class="related-card">
+        <div class="rc-tag">🚩 Warning Signs</div>
+        <h4>9 Signs Your Job Offer Is Too Low</h4>
+        <p>Know when to push back — and when to walk away.</p>
+      </a>
+      <a href="what-is-a-good-salary-2026.html" class="related-card">
+        <div class="rc-tag">📈 Salary Data</div>
+        <h4>What Is a Good Salary in 2026?</h4>
+        <p>Salary benchmarks by city, age group, and industry.</p>
+      </a>
+      <a href="how-to-calculate-take-home-pay.html" class="related-card">
+        <div class="rc-tag">🧮 Salary Guide</div>
+        <h4>How to Calculate Your True Take-Home Pay</h4>
+        <p>What you actually take home after every deduction.</p>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
   <p style="margin-bottom:0.75rem;">© 2026 OfferVault. Free job offer comparison tool.</p>
   <div>
     <a href="https://offervault-mu.vercel.app">Home</a>
+    <a href="guides.html">Guides</a>
     <a href="https://offervault-mu.vercel.app/about.html">About</a>
     <a href="https://offervault-mu.vercel.app/contact.html">Contact</a>
     <a href="https://offervault-mu.vercel.app/privacy.html">Privacy</a>
-    <a href="https://offervault-mu.vercel.app/how-to-negotiate-a-job-offer.html">Negotiate a Job Offer</a>
-    <a href="https://offervault-mu.vercel.app/how-to-compare-job-offers.html">Compare Job Offers</a>
+    <a href="how-to-negotiate-a-job-offer.html">Negotiate a Job Offer</a>
+    <a href="how-to-compare-job-offers.html">Compare Job Offers</a>
   </div>
 </footer>
 
