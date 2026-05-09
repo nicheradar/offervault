@@ -81,6 +81,12 @@
     text-decoration: none; color: var(--text);
   }
   .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-a); display: inline-block; }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-guides {
+    font-size: 13px; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-guides:hover { color: var(--text); }
   .nav-tag {
     font-size: 11px; font-weight: 500;
     background: rgba(74,222,128,0.12);
@@ -332,8 +338,11 @@
     margin-bottom: 1.2rem;
     margin-top: 0;
   }
-  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  @media(max-width: 500px) { .related-grid { grid-template-columns: 1fr; } }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+  }
   .related-card {
     background: var(--bg2); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 1.2rem;
@@ -371,7 +380,10 @@
 
 <nav>
   <a href="index.html" class="logo"><span class="logo-dot"></span> OfferVault</a>
-  <span class="nav-tag">100% Free</span>
+  <div class="nav-right">
+    <a href="guides.html" class="nav-guides">Guides</a>
+    <span class="nav-tag">100% Free</span>
+  </div>
 </nav>
 
 <div class="article-wrap">
@@ -379,7 +391,7 @@
   <div class="breadcrumb">
     <a href="index.html">Home</a>
     <span>›</span>
-    <span>Career Guides</span>
+    <a href="guides.html">Career Guides</a>
     <span>›</span>
     <span>Cost of Living & Salary</span>
   </div>
@@ -724,9 +736,7 @@
     <h3>🏙️ See Exactly What Your Salary Is Worth in Any City</h3>
     <p>Use OfferVault's free Cost of Living calculator to instantly find the equivalent salary 
     in any US city — and compare two full job offers side by side in seconds.</p>
-    <a href="index.html#" class="cta-btn" onclick="window.location.href='index.html'; return false;">
-      Try the Free Calculator →
-    </a>
+    <a href="index.html" class="cta-btn">Try the Free Calculator →</a>
   </div>
 
   <!-- AD SLOT BOTTOM -->
@@ -799,7 +809,7 @@
 
   <!-- RELATED POSTS -->
   <div class="related-posts">
-    <h3>Related Guides</h3>
+    <h3>Keep Reading</h3>
     <div class="related-grid">
       <a href="how-to-compare-job-offers.html" class="related-card">
         <div class="r-emoji">📊</div>
@@ -808,7 +818,27 @@
       </a>
       <a href="how-to-negotiate-a-job-offer.html" class="related-card">
         <div class="r-emoji">💰</div>
-        <div class="r-title">How to Negotiate a Job Offer — Step by Step</div>
+        <div class="r-title">How to Negotiate a Job Offer Step by Step</div>
+        <div class="r-link">Read guide →</div>
+      </a>
+      <a href="salary-negotiation-mistakes.html" class="related-card">
+        <div class="r-emoji">⚠️</div>
+        <div class="r-title">7 Salary Negotiation Mistakes That Cost You Thousands</div>
+        <div class="r-link">Read guide →</div>
+      </a>
+      <a href="what-is-a-good-salary-2026.html" class="related-card">
+        <div class="r-emoji">📈</div>
+        <div class="r-title">What Is a Good Salary in 2026? By City, Age & Industry</div>
+        <div class="r-link">Read guide →</div>
+      </a>
+      <a href="how-to-calculate-take-home-pay.html" class="related-card">
+        <div class="r-emoji">🧮</div>
+        <div class="r-title">How to Calculate Your True Take-Home Pay</div>
+        <div class="r-link">Read guide →</div>
+      </a>
+      <a href="remote-work-vs-office-job-salary.html" class="related-card">
+        <div class="r-emoji">🏠</div>
+        <div class="r-title">Remote Work vs Office Job: Which Pays More?</div>
         <div class="r-link">Read guide →</div>
       </a>
     </div>
@@ -819,7 +849,7 @@
 <footer>
   <p><strong style="color:var(--text); font-family:'Syne',sans-serif;">OfferVault</strong> — Free job offer comparison tools</p>
   <p style="margin-top:6px;">Calculations are estimates for informational purposes. Cost of living figures are approximations based on publicly available data. Always research specific costs in your target city before making decisions.</p>
-  <p style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
+  <p style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="guides.html">Guides</a></p>
 </footer>
 
 </body>
