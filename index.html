@@ -105,6 +105,12 @@
     display: flex; align-items: center; gap: 8px;
   }
   .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-a); display: inline-block; }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-guides-link {
+    font-size: 13px; font-weight: 500; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-guides-link:hover { color: var(--text); }
   .nav-tag {
     font-size: 11px; font-weight: 500;
     background: rgba(74,222,128,0.12);
@@ -383,7 +389,10 @@
 
 <nav>
   <div class="logo"><span class="logo-dot"></span> OfferVault</div>
-  <span class="nav-tag">100% Free</span>
+  <div class="nav-right">
+    <a href="guides.html" class="nav-guides-link">Guides</a>
+    <span class="nav-tag">100% Free</span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -603,7 +612,6 @@
 
   <!-- AD SLOT TOP -->
   <div class="ad-slot" style="margin: 2rem auto; max-width: 728px;">
-    <!-- Google AdSense Ad Unit Here -->
     AdSense Ad — 728×90 Leaderboard
   </div>
 
@@ -618,7 +626,6 @@
     </div>
 
     <div class="results-grid">
-      <!-- TOTAL COMP -->
       <div class="result-card">
         <div class="result-card-title">Total Compensation</div>
         <div class="result-row">
@@ -635,7 +642,6 @@
         </div>
       </div>
 
-      <!-- TAKE-HOME -->
       <div class="result-card">
         <div class="result-card-title">Est. Annual Take-Home Pay</div>
         <div class="result-row">
@@ -652,7 +658,6 @@
         </div>
       </div>
 
-      <!-- HIDDEN COSTS -->
       <div class="result-card">
         <div class="result-card-title">Annual Hidden Costs</div>
         <div class="result-row">
@@ -669,7 +674,6 @@
         </div>
       </div>
 
-      <!-- BENEFITS VALUE -->
       <div class="result-card">
         <div class="result-card-title">Total Benefits Value</div>
         <div class="result-row">
@@ -687,21 +691,17 @@
       </div>
     </div>
 
-    <!-- SCORE BARS -->
     <div class="result-card" style="margin-bottom: 1rem;">
       <div class="result-card-title" style="margin-bottom: 1.5rem;">Factor-by-Factor Score</div>
       <div class="score-bar-wrap" id="score-bars"></div>
     </div>
 
-    <!-- VERDICT -->
     <div class="result-card" id="verdict-card">
       <div class="result-card-title">Our Verdict</div>
       <p id="verdict-text" style="font-size:14px; line-height:1.8; color:var(--muted); margin-top:8px;"></p>
     </div>
 
-    <!-- AD SLOT BOTTOM -->
     <div class="ad-slot" style="margin-top: 2rem;">
-      <!-- Google AdSense Ad Unit Here -->
       AdSense Ad — 728×90 Leaderboard
     </div>
   </div>
@@ -924,48 +924,118 @@
   </div>
 </div>
 
-<!-- BLOG SECTION -->
+<!-- ===================== BLOG / GUIDES SECTION ===================== -->
 <div style="max-width:900px; margin:0 auto; padding:3rem 1.5rem 1rem;">
   <div style="text-align:center; margin-bottom:2rem;">
     <div style="display:inline-block; background:rgba(74,222,128,0.1); color:var(--accent-a); font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:100px; margin-bottom:1rem; border:1px solid rgba(74,222,128,0.2);">Career Guides</div>
     <h2 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; margin-bottom:0.5rem;">Learn How to Make Better Career Decisions</h2>
     <p style="color:var(--muted); font-size:0.95rem;">Free guides to help you negotiate, compare, and choose the right job offer.</p>
   </div>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.2rem;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.2rem;">
+
     <a href="how-to-compare-job-offers.html" style="text-decoration:none;">
       <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
         <div style="font-size:2rem; margin-bottom:0.8rem;">📊</div>
         <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 7 min read</div>
-        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Compare Two Job Offers — The Complete Guide</h3>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Compare Two Job Offers — The Complete Guide</h3>
         <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Learn how to compare salary, take-home pay, benefits, commute and cost of living to find which offer is truly worth more.</p>
         <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
       </div>
     </a>
+
     <a href="how-to-negotiate-a-job-offer.html" style="text-decoration:none;">
       <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
         <div style="font-size:2rem; margin-bottom:0.8rem;">💰</div>
         <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 8 min read</div>
-        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Negotiate a Job Offer — Step by Step</h3>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Negotiate a Job Offer — Step by Step</h3>
         <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Scripts, strategies and tips to get more money, better benefits and the offer you truly deserve.</p>
         <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
       </div>
     </a>
+
     <a href="how-cost-of-living-affects-your-salary.html" style="text-decoration:none;">
       <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
         <div style="font-size:2rem; margin-bottom:0.8rem;">🏙️</div>
         <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 8 min read</div>
-        <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How Cost of Living Affects Your Salary</h3>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How Cost of Living Affects Your Salary</h3>
         <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Why a $100k salary in NYC can be worth less than $60k in Austin — and how to adjust for cost of living when comparing offers.</p>
         <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
       </div>
     </a>
+
+    <a href="how-to-evaluate-a-job-offer.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🔍</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 6 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Evaluate a Job Offer the Right Way</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">A complete framework for assessing every part of a job offer — salary, benefits, growth, culture, and long-term value.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="signs-job-offer-is-too-low.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🚩</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 8 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">9 Signs Your Job Offer Is Too Low</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Not sure if your offer is fair? These 9 clear signs tell you when to push back — and when to walk away entirely.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="remote-work-vs-office-job-salary.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🏠</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 5 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">Remote Work vs Office Job: Which Pays More?</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Remote jobs often pay less on paper but save thousands in commute costs. Here's the real comparison.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="salary-negotiation-mistakes.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">⚠️</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 7 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">7 Salary Negotiation Mistakes That Cost You Thousands</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Most people leave money on the table without knowing it. Avoid these 7 mistakes before responding to any offer.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="what-is-a-good-salary-2026.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">📈</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 6 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">What Is a Good Salary in 2026? By City, Age & Industry</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">Is your offer competitive? We break down what counts as a good salary by city, age group, and industry with real data.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
+    <a href="how-to-calculate-take-home-pay.html" style="text-decoration:none;">
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:1.6rem; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'; this.style.transform='translateY(0)'">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🧮</div>
+        <div style="font-size:0.75rem; font-weight:600; color:var(--accent-a); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Guide · 6 min read</div>
+        <h3 style="font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.6rem; line-height:1.3;">How to Calculate Your True Take-Home Pay</h3>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">The salary on your offer letter is not what lands in your bank account. Here's what you actually take home after every deduction.</p>
+        <span style="color:var(--accent-a); font-size:0.88rem; font-weight:600;">Read guide →</span>
+      </div>
+    </a>
+
   </div>
+
+  <!-- View All Guides Link -->
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="guides.html" style="display:inline-block; background:var(--bg3); border:1px solid var(--border2); color:var(--muted); padding:10px 24px; border-radius:30px; font-size:0.88rem; font-weight:500; text-decoration:none; transition:color 0.2s, border-color 0.2s;" onmouseover="this.style.color='#f0f1f3'; this.style.borderColor='rgba(255,255,255,0.25)'" onmouseout="this.style.color='#7a7f8e'; this.style.borderColor='rgba(255,255,255,0.13)'">View all guides →</a>
+  </div>
+
 </div>
 
 <footer>
   <p><strong style="color:var(--text); font-family:'Syne',sans-serif;">OfferVault</strong> — Free job offer comparison tools</p>
   <p style="margin-top:6px;">Calculations are estimates for informational purposes. Tax figures are simplified US federal brackets. Always consult a financial advisor for major decisions.</p>
-  <p style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
+  <p style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="guides.html">Guides</a></p>
 </footer>
 
 <script>
@@ -986,8 +1056,6 @@ function getStr(id) { return document.getElementById(id).value.trim(); }
 function calculateComparison() {
   const aName = getStr('a-company') || 'Offer A';
   const bName = getStr('b-company') || 'Offer B';
-
-  // -- Offer A --
   const aSalary = getVal('a-salary');
   const aBonus  = getVal('a-bonus');
   const aStock  = getVal('a-stock');
@@ -1000,8 +1068,6 @@ function calculateComparison() {
   const aPerks = getVal('a-perks');
   const aTax   = parseFloat(document.getElementById('a-tax').value);
   const aGrowth = parseInt(document.getElementById('a-growth').value);
-
-  // -- Offer B --
   const bSalary = getVal('b-salary');
   const bBonus  = getVal('b-bonus');
   const bStock  = getVal('b-stock');
@@ -1014,65 +1080,42 @@ function calculateComparison() {
   const bPerks = getVal('b-perks');
   const bTax   = parseFloat(document.getElementById('b-tax').value);
   const bGrowth = parseInt(document.getElementById('b-growth').value);
-
-  // Totals
   const aTotalComp = aSalary + aBonus + aStock;
   const bTotalComp = bSalary + bBonus + bStock;
-
   const aHiddenCosts = aHealth + aCommuteAnnual;
   const bHiddenCosts = bHealth + bCommuteAnnual;
-
   const aBenefits = a401k + aPTO + aPerks;
   const bBenefits = b401k + bPTO + bPerks;
-
-  // Take-home (simplified: salary after tax, minus FICA 7.65%)
   const aTakeHome = (aSalary * (1 - aTax) * (1 - 0.0765)) + aBonus * (1 - aTax) - aHiddenCosts + aBenefits;
   const bTakeHome = (bSalary * (1 - bTax) * (1 - 0.0765)) + bBonus * (1 - bTax) - bHiddenCosts + bBenefits;
-
   const diff = bTotalComp - aTotalComp;
   const thDiff = (bTakeHome - aTakeHome) / 12;
-
-  // Scores (0-100)
   const maxComp = Math.max(aTotalComp, bTotalComp);
   const scoreComp = { a: Math.round(aTotalComp/maxComp*100), b: Math.round(bTotalComp/maxComp*100) };
-
   const maxTH = Math.max(aTakeHome, bTakeHome);
   const scoreTH = { a: Math.round(aTakeHome/maxTH*100), b: Math.round(bTakeHome/maxTH*100) };
-
   const maxBen = Math.max(aBenefits + 1, bBenefits + 1);
   const scoreBen = { a: Math.round(aBenefits/maxBen*100), b: Math.round(bBenefits/maxBen*100) };
-
   const maxCost = Math.max(aHiddenCosts + 1, bHiddenCosts + 1);
   const scoreCost = { a: Math.round((1 - aHiddenCosts/maxCost)*100), b: Math.round((1 - bHiddenCosts/maxCost)*100) };
-
   const maxGrowth = 3;
   const scoreGrowth = { a: Math.round(aGrowth/maxGrowth*100), b: Math.round(bGrowth/maxGrowth*100) };
-
   const aOverall = Math.round((scoreComp.a*0.3 + scoreTH.a*0.3 + scoreBen.a*0.15 + scoreCost.a*0.15 + scoreGrowth.a*0.1));
   const bOverall = Math.round((scoreComp.b*0.3 + scoreTH.b*0.3 + scoreBen.b*0.15 + scoreCost.b*0.15 + scoreGrowth.b*0.1));
-
-  // Update UI
-  document.querySelectorAll('#rc-a-name, #rc-b-name').forEach(() => {});
   document.getElementById('rc-a-name').textContent = aName;
   document.getElementById('rc-b-name').textContent = bName;
-
   document.getElementById('rc-a-total').textContent = fmt(aTotalComp);
   document.getElementById('rc-b-total').textContent = fmt(bTotalComp);
   document.getElementById('rc-diff').textContent = (diff >= 0 ? '+' : '') + fmt(Math.abs(diff)) + ' ' + (diff >= 0 ? '(B higher)' : '(A higher)');
   document.getElementById('rc-diff').style.color = diff >= 0 ? '#60a5fa' : '#4ade80';
-
   document.getElementById('th-a').textContent = fmt(aTakeHome);
   document.getElementById('th-b').textContent = fmt(bTakeHome);
   document.getElementById('th-monthly').textContent = fmt(Math.abs(thDiff)) + '/mo ' + (thDiff >= 0 ? '(B higher)' : '(A higher)');
   document.getElementById('th-monthly').style.color = thDiff >= 0 ? '#60a5fa' : '#4ade80';
-
   document.getElementById('hc-a').textContent = fmt(aHiddenCosts);
   document.getElementById('hc-b').textContent = fmt(bHiddenCosts);
-
   document.getElementById('bv-a').textContent = fmt(aBenefits);
   document.getElementById('bv-b').textContent = fmt(bBenefits);
-
-  // Score bars
   const bars = [
     { label: 'Total comp', a: scoreComp.a, b: scoreComp.b },
     { label: 'Take-home pay', a: scoreTH.a, b: scoreTH.b },
@@ -1095,25 +1138,16 @@ function calculateComparison() {
     </div>
   `).join('');
   document.getElementById('score-bars').innerHTML = barsHtml;
-
-  // Winner
   const winner = aOverall >= bOverall ? aName : bName;
   const loser  = aOverall >= bOverall ? bName : aName;
   const winScore = Math.max(aOverall, bOverall);
   const loseScore = Math.min(aOverall, bOverall);
   document.getElementById('winner-name').textContent = winner + ' wins';
   document.getElementById('winner-name').style.color = aOverall >= bOverall ? '#4ade80' : '#60a5fa';
-
   const winDiff = Math.abs(aOverall - bOverall);
   let strength = winDiff >= 15 ? 'clearly' : winDiff >= 7 ? 'slightly' : 'very narrowly';
-
-  const wTH = aOverall >= bOverall ? fmt(aTakeHome) : fmt(bTakeHome);
-  const lTH = aOverall >= bOverall ? fmt(bTakeHome) : fmt(aTakeHome);
-
   document.getElementById('winner-reason').textContent =
     `${winner} is ${strength} the better overall offer with a score of ${winScore} vs ${loseScore}.`;
-
-  // Verdict
   const monthlyDiff = Math.abs(thDiff);
   document.getElementById('verdict-text').innerHTML =
     `<strong style="color:var(--accent-a)">${winner}</strong> is the stronger offer overall. ` +
@@ -1122,7 +1156,6 @@ function calculateComparison() {
     `(${fmt(monthlyDiff)}/month). ` +
     (winDiff < 6 ? `The offers are very close — consider which company culture and growth path aligns better with your long-term goals.` :
     `Unless ${loser} offers something not captured here (like stronger culture or location preference), ${winner} is the clear choice.`);
-
   document.getElementById('results').classList.add('show');
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -1132,11 +1165,8 @@ function calcTakeHome() {
   const stateTax = parseFloat(document.getElementById('th-state').value);
   const contrib401k = getVal('th-401k') / 100;
   const healthMo = getVal('th-health');
-
   const pre401k = gross * contrib401k;
   const taxableIncome = gross - pre401k;
-
-  // US Federal brackets 2024 (single, simplified)
   let fedTax = 0;
   const brackets = [[11600, 0.10],[47150,0.12],[100525,0.22],[191950,0.24],[243725,0.32],[609350,0.35],[Infinity,0.37]];
   let prev = 0;
@@ -1145,13 +1175,10 @@ function calcTakeHome() {
     fedTax += (Math.min(taxableIncome, limit) - prev) * rate;
     prev = limit;
   }
-
   const fica = gross * 0.0765;
   const stTax = taxableIncome * stateTax;
   const healthAnnual = healthMo * 12;
-
   const takeHome = gross - fedTax - stTax - fica - pre401k - healthAnnual;
-
   document.getElementById('th-main-val').textContent = fmt(takeHome);
   document.getElementById('th-gross').textContent = fmt(gross);
   document.getElementById('th-fed').textContent = '-' + fmt(fedTax);
@@ -1160,7 +1187,6 @@ function calcTakeHome() {
   document.getElementById('th-401k-ded').textContent = '-' + fmt(pre401k);
   document.getElementById('th-health-ded').textContent = '-' + fmt(healthAnnual);
   document.getElementById('th-monthly-net').textContent = fmt(takeHome / 12) + '/month';
-
   document.getElementById('th-result').style.display = 'block';
 }
 
@@ -1168,27 +1194,23 @@ function calcCOL() {
   const fromIdx = parseFloat(document.getElementById('col-from-city').value);
   const toIdx   = parseFloat(document.getElementById('col-to-city').value);
   const salary  = getVal('col-salary');
-
   const equivalent = salary * (toIdx / fromIdx);
   const fromCity = document.getElementById('col-from-city').selectedOptions[0].text;
   const toCity   = document.getElementById('col-to-city').selectedOptions[0].text;
-
   document.getElementById('col-equiv').textContent = fmt(equivalent);
   document.getElementById('col-equiv-sub').textContent = `is the equivalent salary in ${toCity}`;
   document.getElementById('col-from-sal').textContent = fmt(salary) + ' in ' + fromCity;
   document.getElementById('col-to-sal').textContent = fmt(equivalent) + ' in ' + toCity;
-
   const diff = equivalent - salary;
   const pct  = Math.abs(((equivalent - salary) / salary) * 100).toFixed(1);
   let verdictText;
   if (Math.abs(diff) < 2000) {
     verdictText = 'The cost of living is nearly identical between these two cities. Your salary transfers well.';
   } else if (diff < 0) {
-    verdictText = `Moving from ${fromCity} to ${toCity} means your money goes FURTHER. Your ${fmt(salary)} salary effectively becomes worth ${fmt(equivalent)} — that's ${pct}% more purchasing power. Any salary above ${fmt(equivalent)} is a real raise.`;
+    verdictText = `Moving from ${fromCity} to ${toCity} means your money goes FURTHER. Your ${fmt(salary)} salary effectively becomes worth ${fmt(equivalent)} — that's ${pct}% more purchasing power.`;
   } else {
     verdictText = `${toCity} is more expensive. You'd need ${fmt(equivalent)} (${pct}% more) to maintain your current lifestyle. If the new offer pays less than ${fmt(equivalent)}, it's effectively a pay cut.`;
   }
-
   document.getElementById('col-verdict-val').textContent = verdictText;
   document.getElementById('col-result').style.display = 'block';
 }
@@ -1201,12 +1223,7 @@ function generateScript() {
   const competing = document.getElementById('neg-competing').value;
   const strengths = getStr('neg-strengths');
   const tone    = document.getElementById('neg-tone').value;
-
-  const increase = target - offer;
-  const pct = ((increase / offer) * 100).toFixed(1);
-
   let script = '';
-
   if (tone === 'professional') {
     script = `<strong>Subject: Re: Offer for ${title} — Salary Discussion</strong><br><br>`;
     script += `Thank you so much for extending this offer — I'm genuinely excited about the opportunity to join the team as ${title} and contribute to [Company Name]'s goals.<br><br>`;
@@ -1214,9 +1231,7 @@ function generateScript() {
     if (strengths) script += `With ${exp} years of experience in this space — including ${strengths} — `;
     else script += `With ${exp} years of relevant experience, `;
     script += `I've benchmarked the role and believe a salary in the range of <strong>${fmt(target)}</strong> more accurately reflects my market value and the value I'll bring.<br><br>`;
-    if (competing === 'yes') {
-      script += `I do want to be transparent — I'm currently evaluating another offer in a similar range. However, this role is my first choice, and I'd love to make it work.<br><br>`;
-    }
+    if (competing === 'yes') script += `I do want to be transparent — I'm currently evaluating another offer in a similar range. However, this role is my first choice, and I'd love to make it work.<br><br>`;
     script += `I'm confident in my ability to deliver strong results from day one, and I hope we can find an arrangement that works for both of us. I'm flexible on the structure — whether that's a higher base, a sign-on bonus, or accelerated review timeline.<br><br>`;
     script += `Thank you for your consideration. I look forward to your thoughts.`;
   } else if (tone === 'warm') {
@@ -1236,7 +1251,6 @@ function generateScript() {
     if (competing === 'yes') script += ` I have a competing offer in this range.`;
     script += `<br><br>Happy to discuss. When can we talk?`;
   }
-
   const el = document.getElementById('neg-result');
   el.innerHTML = script;
   el.classList.add('show');
